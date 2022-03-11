@@ -32,8 +32,9 @@ begin
 		set wr.reputacion = reputation
 		where username = username;
 	else 
-		insert into weekly_reputation values (username, reputacion);	commit;
+		insert into weekly_reputation values (username, reputacion);	
 	end if;
+	commit;
 end; $$
 
 
