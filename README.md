@@ -18,3 +18,7 @@
 ## Punto 2: comprueba que ya existe una orden para un carrito de compra dado.
 
 2_Verificacion sql
+
+## Punto 3:  weekly reputation
+
+3_weekly_reputation.sql
