@@ -1,3 +1,9 @@
+create table weekly_reputation (
+	comprador varchar (30) not null primary key unique,
+	week_reputation varchar(11),
+	foreign key(comprador) references proveedor (username)
+);
+
 
 create or replace procedure calc_reputacion (
 username varchar(30),
