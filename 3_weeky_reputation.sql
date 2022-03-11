@@ -4,7 +4,6 @@ create table weekly_reputation (
 	foreign key(comprador) references proveedor (username)
 );
 
-
 create or replace procedure calc_reputacion (
 username varchar(30),
 sum_calificaciones int,
@@ -23,15 +22,22 @@ begin
 		reputacion = 'Media-Alta';
 	else if (sum_calificaciones > 20)then
 		reputacion = 'Alta';
-	
+	end if;
+	end if;
+	end if;
+	end if;
+	end if;
 	if exists (select wr.comprador from weekly_reputation as wr where wr.comprador = username) then
 		update weekly_reputation as wr
 		set wr.reputacion = reputation
 		where username = username;
 	else 
-		insert into weekly_reputation values (username, reputacion);
-	commit;
+		insert into weekly_reputation values (username, reputacion);	commit;
+	end if;
 end; $$
+
+
+
 
 
 
