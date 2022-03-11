@@ -2,7 +2,9 @@
 
 Integrantes: 
 • ALEJANDRA BUITRAGO
+
 • ANDRÉS GALVIS 
+
 • JUAN PEREZ
 
 
