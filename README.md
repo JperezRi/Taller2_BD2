@@ -21,6 +21,10 @@
 
 2_Verificacion sql
 
+![image](https://user-images.githubusercontent.com/65410285/157807531-9ceae998-9379-486d-a398-8326340a473c.png)
+
 ## Punto 3:  weekly reputation
 
 3_weekly_reputation.sql
+
+![image](https://user-images.githubusercontent.com/65410285/157807669-185bc491-fb9a-4849-b13d-34d5594e1cd3.png)
