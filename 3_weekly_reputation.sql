@@ -30,7 +30,7 @@ begin
 	if exists (select wr.comprador from weekly_reputation as wr where wr.comprador = username) then
 		update weekly_reputation as wr
 		set wr.reputacion = reputation
-		where username = username;
+		where wr.username = username;
 	else 
 		insert into weekly_reputation values (username, reputacion);	
 	end if;
