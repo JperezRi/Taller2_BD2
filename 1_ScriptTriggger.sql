@@ -1,5 +1,5 @@
 /**
-* Creación de trigger insert or update
+* CreaciÃ³n de trigger insert or update
 */
 CREATE FUNCTION before_producto_updateORinsert() RETURNS trigger AS $before_producto_updateORinsert$
    BEGIN
@@ -16,7 +16,7 @@ CREATE TRIGGER before_producto_updateORinsert BEFORE INSERT OR UPDATE ON product
     FOR EACH ROW EXECUTE PROCEDURE before_producto_updateORinsert();
 
 /**
-* Creación de trigger delete
+* CreaciÃ³n de trigger delete
 */
 CREATE FUNCTION before_producto_delete() RETURNS trigger AS $before_producto_delete$
    BEGIN
