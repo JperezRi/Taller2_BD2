@@ -15,6 +15,8 @@
 
 1_ScriptTriggger.sql
 
+![image](https://user-images.githubusercontent.com/65410285/157807404-431a7eb0-bc7f-4924-aaf1-3221920ded7c.png)
+
 ## Punto 2: comprueba que ya existe una orden para un carrito de compra dado.
 
 2_Verificacion sql
