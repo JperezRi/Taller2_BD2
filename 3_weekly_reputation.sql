@@ -1,5 +1,5 @@
 create table weekly_reputation (
-	comprador varchar (30) not null primary key unique,
+	proveedor varchar (30) not null primary key unique,
 	week_reputation varchar(11),
 	foreign key(comprador) references proveedor (username)
 );
@@ -27,7 +27,7 @@ begin
 	end if;
 	end if;
 	end if;
-	if exists (select wr.comprador from weekly_reputation as wr where wr.comprador = username) then
+	if exists (select wr.proveedor from weekly_reputation as wr where wr.proveedor = username) then
 		update weekly_reputation as wr
 		set wr.reputacion = reputation
 		where wr.comprador = username;
@@ -37,9 +37,6 @@ begin
 	commit;
 end; $$
 
-
-
-
-
-
+call calc_reputacion('Paulita',5,'BAJA');
+select * from weekly_reputation;
 
