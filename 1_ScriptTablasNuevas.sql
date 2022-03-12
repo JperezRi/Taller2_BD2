@@ -16,11 +16,10 @@ create table Producto_auditoria(
 
 create table Variante_auditoria(
     numero int not null primary key unique,
-    expiracion int not null,
     codigo int not null,
     estado varchar(1),
     stock int not null,
-    producto int not null,
+    producto varchar(10),
     carroCompra int not null,
     event_type  varchar(30),
     event_datetime date,
