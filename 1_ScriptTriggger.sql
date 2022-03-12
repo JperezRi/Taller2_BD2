@@ -3,29 +3,27 @@
 */
 CREATE FUNCTION before_producto_updateORinsert() RETURNS trigger AS $before_producto_updateORinsert$
    BEGIN
-     IF NEW.id_pro IS NULL THEN
-            RAISE EXCEPTION 'cannot be null';
-	 END IF;
-     IF NEW.titulo IS NULL THEN
-         RAISE EXCEPTION '% cannot be null', NEW.id_pro;
-     END IF;
-    END;
+
+	IF (TG_OP= 'INSERT' ) THEN
+	INSERT INTO producto_auditoria
+	VALUES(new.id_pro,new.titulo,new.marca,new.categoria,new.descripcion,new.proveedor, 'INSERT', '/2002/02/03');
+	RETURN NEW;
+	ELSEIF (TG_OP= 'UPDATE' ) THEN
+	INSERT INTO producto_auditoria
+	VALUES(new.id_pro,new.titulo,new.marca,new.categoria,new.descripcion,new.proveedor, 'UPDATE','/2002/02/03');
+	RETURN NEW;
+	ELSEIF (TG_OP= 'DELETE' ) THEN
+	INSERT INTO producto_auditoria
+	VALUES(old.id_pro,old.titulo,old.marca,old.categoria,old.descripcion,old.proveedor, 'DELETE','/2002/02/03');
+	RETURN OLD;
+	END IF;
+	RETURN NULL;
+END;
 $before_producto_updateORinsert$ LANGUAGE plpgsql;
 
-CREATE TRIGGER before_producto_updateORinsert BEFORE INSERT OR UPDATE ON producto_auditoria
+CREATE TRIGGER before_producto_updateORinsert BEFORE INSERT OR UPDATE ON producto
     FOR EACH ROW EXECUTE PROCEDURE before_producto_updateORinsert();
 
-/**
-* Creación de trigger delete
-*/
-CREATE FUNCTION before_producto_delete() RETURNS trigger AS $before_producto_delete$
-   BEGIN
-     DELETE FROM producto_auditoria WHERE id_pro = null;
-    END;
-$before_producto_delete$ LANGUAGE plpgsql;
-CREATE TRIGGER before_producto_delete BEFORE DELETE 
-    ON producto_auditoria FOR EACH ROW 
-    EXECUTE PROCEDURE before_producto_delete();
 
 /**
 * Eliminar triggers
