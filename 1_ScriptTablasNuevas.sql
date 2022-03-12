@@ -2,7 +2,6 @@ create table Producto_auditoria(
     id_pro int not null ,
     titulo varchar(20),
     marca varchar(10),
-    fotos bytea,
     categoria varchar(10),
     descripcion varchar(50),
     proveedor varchar(30),
