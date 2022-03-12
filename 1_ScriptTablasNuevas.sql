@@ -19,12 +19,12 @@ create table Variante_auditoria(
     codigo int not null,
     estado varchar(1),
     stock int not null,
-    producto varchar(10),
+    producto int not null,
     carroCompra int not null,
     event_type  varchar(30),
     event_datetime date,
     foreign key (producto)
     references producto(id_pro),
     foreign key (carroCompra)
-	references carroCompra(id_carro)
+    references carroCompra(id_carro)
 );
