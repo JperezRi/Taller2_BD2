@@ -8,7 +8,7 @@
 
 • JUAN PEREZ
 
-Link de youtube: https://youtu.be/7VbMbpvbvd4
+Link de youtube: https://youtu.be/wHXpp3TYC_8
 
 ## Punto 1: creación de las dos nuevas tablas y otro donde se ejecutan los triggers
 
