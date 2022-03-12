@@ -47,7 +47,7 @@ CREATE FUNCTION before_variante() RETURNS trigger AS $before_variante$
 END;
 $before_variante$ LANGUAGE plpgsql;
 
-CREATE TRIGGER before_variante BEFORE INSERT OR UPDATE ON producto
+CREATE TRIGGER before_variante BEFORE INSERT OR UPDATE ON variante
     FOR EACH ROW EXECUTE PROCEDURE before_variante();
 
 /**
