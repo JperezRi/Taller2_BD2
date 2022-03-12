@@ -19,6 +19,7 @@
 
 ## Punto 2: comprueba que ya existe una orden para un carrito de compra dado.
 
+2_script.sql
 2_Verificacion sql
 
 ![image](https://user-images.githubusercontent.com/65410285/157807531-9ceae998-9379-486d-a398-8326340a473c.png)
