@@ -6,6 +6,8 @@ create table Producto_auditoria(
     categoria varchar(10),
     descripcion varchar(50),
     proveedor varchar(30),
+    event_type  varchar(30),
+    event_datetime date,
     foreign key (proveedor)
     references proveedor(username),
     primary key (id_pro)
@@ -20,6 +22,8 @@ create table Variante_auditoria(
     stock int not null,
     producto int not null,
     carroCompra int not null,
+    event_type  varchar(30),
+    event_datetime date,
     foreign key (producto)
     references producto(id_pro),
     foreign key (carroCompra)
