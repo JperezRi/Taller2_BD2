@@ -49,25 +49,54 @@ $before_variante$ LANGUAGE plpgsql;
 
 CREATE TRIGGER before_variante BEFORE INSERT OR UPDATE ON producto
     FOR EACH ROW EXECUTE PROCEDURE before_variante();
-    
-    
-insert into producto values (1,'carro2','toyota2','vehiculo2','carro lindo 2','Paulita');
-
-update producto 
-set titulo='juanito999'
-where id_pro=0;
-select * from producto_auditoria;
-
-
-insert into variante values (1,1010,'B',5,'vehiculo',0);
-
-update variante 
-set codigo= 1011
-where numero=1;
-select * from variante_auditoria;
 
 /**
 * Eliminar triggers
 */
 drop trigger before_producto_updateORinsert on producto_auditoria;  
 drop trigger before_producto_delete on producto_auditoria;
+
+/*
+* Se incertan datos atablas correspondiente
+*/
+/**
+* Informacion basica para generar un usuario
+*/
+insert into documento values (1,'Cedula');
+insert into ciudad values ('Bogota','Lindis');
+/**
+* Se genera un usuario (proveedor)
+*/
+insert into usuario values ('Paulita','paula','Buitrago',1000272,'paub@hot.com',1,'Hola','Calle 23','Bogota');
+insert into proveedor values ('Paulita',1,'Hola soy paulita');
+/**
+* Se inserta producto y variante
+*/
+insert into producto values (1,'carro2','toyota2','vehiculo2','carro lindo 2','Paulita');
+insert into variante values (1,1010,'B',5,1,0);
+/**
+* Se genera un usuario (comprador)
+*/
+insert into usuario values ('Andresito','Andres','Galvis',10023949,'Galvisito@hot.com',1,'Hola','Calle','Bogota');
+insert into comprador values ('Andresito','Hola soy andresito');
+insert into carroCompra values (0,'Andresito','PCs','Asus','2','D','20/07/2003');
+
+
+select * from variante_auditoria;
+select * from carrocompra;
+
+select * from producto_auditoria;
+select * from documento;
+
+/**
+* Validación 
+*/
+select * from producto;
+select * from producto_auditoria;
+insert into producto values (2,'celular','apple','celulares','pequeño','Paulita');
+select * from producto_auditoria;
+
+select * from variante;
+select * from variante_auditoria;
+insert into variante values (2,1011,'B',2,2,0);
+select * from variante_auditoria;
